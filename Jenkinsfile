@@ -39,5 +39,14 @@ pipeline {
         sh 'terraform apply -input=false tfplan'
       }
     }
+ stage('Terraform destroy') {
+      
+      steps {
+        input message: 'Do you want to destroy?', ok: 'Yes, apply'
+        sh 'terraform apply -input=false tfplan'
+      }
+    }
+
+    
   }
 }
