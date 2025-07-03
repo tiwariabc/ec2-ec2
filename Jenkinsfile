@@ -33,9 +33,7 @@ pipeline {
     }
 
     stage('Terraform Apply') {
-      when {
-        branch 'main'
-      }
+      
       steps {
         input message: 'Do you want to apply?', ok: 'Yes, apply'
         sh 'terraform apply -input=false tfplan'
